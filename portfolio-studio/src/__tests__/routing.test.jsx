@@ -12,7 +12,7 @@ describe('Routing', () => {
     );
 
     // Check for hero section content
-    expect(screen.getByText(/Crafting Digital Experiences/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Crafting Digital Experiences/i })).toBeInTheDocument();
   });
 
   it('renders work page on /work path', () => {
@@ -56,7 +56,7 @@ describe('Routing', () => {
     );
 
     // Check for case study content
-    expect(screen.getByText('Modern Banking Experience')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Modern Banking Experience' })).toBeInTheDocument();
   });
 
   it('shows 404 for non-existent project', () => {
