@@ -4,7 +4,7 @@ export const valuePillars = [
   {
     id: 'clarity',
     title: 'Clarity over cleverness',
-    description: 'I strip away unnecessary complexity. Users shouldn't need to interpret—they should know exactly what to do next through obvious hierarchy and clear language.',
+    description: 'I strip away unnecessary complexity. Users shouldn\'t need to interpret—they should know exactly what to do next through obvious hierarchy and clear language.',
   },
   {
     id: 'craft',
