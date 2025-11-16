@@ -25,10 +25,10 @@ function Home() {
   return (
     <div>
       {/* Hero Section - UnicornStudio */}
-      <section className="min-h-screen flex items-center justify-center bg-dark overflow-hidden">
+      <section className="flex items-center justify-center bg-dark overflow-hidden" style={{ height: '70vh' }}>
         <div
           data-us-project="tfTJE5fjug296JOMr7eh"
-          style={{ width: '1440px', height: '900px', maxWidth: '100%' }}
+          style={{ width: '100%', height: '100%', maxWidth: '1440px' }}
         />
       </section>
 
