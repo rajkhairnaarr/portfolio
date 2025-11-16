@@ -176,3 +176,55 @@ None - test coverage complete.
 
 ---
 
+## `src/components/ProjectCard.jsx` (DELETED)
+
+**Diff Summary:**
+Removed old ProjectCard component file.
+
+**Reason:**
+ProjectCard replaced by ProjectBand for editorial layout—boxed cards replaced by full-width horizontal bands.
+
+**TODOs:**
+None - component superseded.
+
+---
+
+## `src/components/ProjectsGrid.jsx` (DELETED)
+
+**Diff Summary:**
+Removed old ProjectsGrid component file.
+
+**Reason:**
+ProjectsGrid replaced by stacked ProjectBand components rendered directly in Home.jsx—no wrapper component needed for editorial layout.
+
+**TODOs:**
+None - component superseded.
+
+---
+
+## `src/__tests__/ProjectCard.test.jsx` (DELETED)
+
+**Diff Summary:**
+Removed old ProjectCard test file.
+
+**Reason:**
+Test obsolete after ProjectCard deletion—replaced by ProjectBand.test.jsx.
+
+**TODOs:**
+None - test superseded.
+
+---
+
+## `src/__tests__/setup.js`
+
+**Diff Summary:**
+Added IntersectionObserver and window.matchMedia mocks in beforeAll() hook. IntersectionObserver mock provides empty implementation for framer-motion viewport features. matchMedia mock returns static object for responsive component tests.
+
+**Reason:**
+jsdom test environment lacks IntersectionObserver and full matchMedia support—mocks prevent framer-motion and responsive component test failures.
+
+**TODOs:**
+None - test infrastructure only.
+
+---
+
