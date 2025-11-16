@@ -480,6 +480,15 @@
       padding-bottom: 15vh;
     }
   }
+
+  /* Hide UnicornStudio watermark */
+  [data-us-project] a[href*="unicornstudio"] {
+    display: none !important;
+  }
+
+  [data-us-project] div[style*="position: absolute"][style*="bottom"] {
+    display: none !important;
+  }
 }
 
 /* ============================================
