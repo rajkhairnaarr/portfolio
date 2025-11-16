@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --left-gutter: 96px;
+  --max-text-col: 540px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --left-gutter: 24px;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -32,6 +43,26 @@
 }
 
 @layer components {
+  /* CSS Variable-based utility classes */
+  .narrow-col {
+    max-width: var(--max-text-col);
+  }
+
+  .left-gutter {
+    padding-left: var(--left-gutter);
+  }
+
+  .hairline {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .h1-display {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 9vw, 96px);
+    line-height: 0.95;
+    @apply font-bold;
+  }
+
   /* Hero section specific typography */
   .hero-h1 {
     font-size: clamp(36px, 6vw, 72px);
