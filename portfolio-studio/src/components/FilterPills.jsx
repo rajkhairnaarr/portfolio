@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { Button } from './ui/button';
+import { cn } from '../lib/utils';
 
 function FilterPills({ activeFilter, onFilterChange }) {
   const filters = ['All', 'Brand', 'Product', 'UI', 'System'];
@@ -7,22 +8,25 @@ function FilterPills({ activeFilter, onFilterChange }) {
     <section className="py-12 px-6 bg-white">
       <div className="max-w-content mx-auto">
         <div
-          className="flex gap-4 justify-center overflow-x-auto pb-4"
+          className="flex gap-3 justify-center overflow-x-auto pb-4"
           role="toolbar"
           aria-label="Project filter"
         >
           {filters.map((filter) => (
-            <motion.button
+            <Button
               key={filter}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               onClick={() => onFilterChange(filter)}
-              className="filter-pill whitespace-nowrap"
+              variant={activeFilter === filter ? 'default' : 'ghost'}
+              size="sm"
+              className={cn(
+                'whitespace-nowrap rounded-full px-6',
+                activeFilter !== filter && 'border-2 border-gray-300'
+              )}
               aria-pressed={activeFilter === filter}
               aria-label={`Filter by ${filter}`}
             >
               {filter}
-            </motion.button>
+            </Button>
           ))}
         </div>
       </div>
