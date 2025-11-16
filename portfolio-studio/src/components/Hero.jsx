@@ -13,14 +13,16 @@ function Hero() {
           transition={{ duration: 0.8 }}
           className="editorial-text-narrow space-y-8"
         >
+          <div className="text-sm uppercase tracking-wider text-gray-300 font-medium">
+            Product Designer
+          </div>
+
           <h1 className="hero-h1 on-gradient-dark">
-            Crafting Digital Experiences That Matter
+            I design clear, intuitive digital experiences.
           </h1>
 
           <p className="hero-lead on-gradient-dark">
-            I'm a product designer passionate about creating intuitive, accessible,
-            and delightful user experiences. From concept to launch, I transform
-            complex problems into elegant solutions.
+            I'm Raj Khairnar, a UI/UX designer focused on clarity, usability, and thoughtful product decisions.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -28,7 +30,7 @@ function Hero() {
               <Link to="/work">View My Work</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link to="/contact">Get In Touch</Link>
+              <Link to="/about">About Me</Link>
             </Button>
           </div>
         </motion.div>

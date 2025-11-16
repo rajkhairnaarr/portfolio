@@ -42,7 +42,7 @@ function Header() {
             to="/"
             className="text-2xl font-heading font-bold text-white hover:text-accent transition-colors"
           >
-            Portfolio Studio
+            Raj Khairnar
           </Link>
 
           {/* Desktop Navigation */}
