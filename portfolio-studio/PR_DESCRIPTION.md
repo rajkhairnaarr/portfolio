@@ -114,7 +114,7 @@ After: Editorial bands with left-aligned narrow text and full-bleed imagery
 
 ---
 
-**Branch:** `claude/editorial-shadcn-fix-1763278788`
+**Branch:** `claude/editorial-shadcn-fix-01GTu19P7RYdFpJQHnbBzNUN`
 **Commits:** 7
 **Files Changed:** 20+ files created/modified/deleted
 **Reference:** See `CLAUDE-CHANGES.md` for complete modification log
