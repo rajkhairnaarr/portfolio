@@ -23,37 +23,37 @@ function Footer() {
   const parallaxOffset = scrollY * 0.1;
 
   return (
-    <footer className="bg-footer-deep text-white">
-      {/* Footer Content */}
-      <div className="max-w-content mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+    <footer className="bg-dark border-t border-subtle">
+      {/* Footer Content - asymmetric, minimal */}
+      <div className="container-asymmetric py-16">
+        <div className="grid md:grid-cols-3 gap-12 items-start">
           {/* Column 1 - Brand */}
           <div>
-            <p className="text-gray-400">
-              © {new Date().getFullYear()} Raj Khairnar — Designing thoughtful digital experiences.
+            <p className="text-small text-muted">
+              © {new Date().getFullYear()} Raj Khairnar
+              <br />
+              Building clarity into complex products
             </p>
           </div>
 
           {/* Column 2 - Navigation */}
-          <div className="text-center">
-            <nav className="flex justify-center space-x-6" aria-label="Footer navigation">
+          <div>
+            <nav className="flex flex-col space-y-3" aria-label="Footer navigation">
               <Link
                 to="/about"
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-small text-muted hover:text-accent transition-colors uppercase tracking-wider"
               >
                 About
               </Link>
-              <span className="text-gray-600">·</span>
               <Link
                 to="/work"
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-small text-muted hover:text-accent transition-colors uppercase tracking-wider"
               >
                 Work
               </Link>
-              <span className="text-gray-600">·</span>
               <Link
                 to="/contact"
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-small text-muted hover:text-accent transition-colors uppercase tracking-wider"
               >
                 Contact
               </Link>
@@ -61,29 +61,27 @@ function Footer() {
           </div>
 
           {/* Column 3 - Social & Email */}
-          <div className="text-right">
-            <div className="flex justify-end space-x-6">
+          <div className="md:text-right">
+            <div className="flex md:justify-end flex-col md:items-end space-y-3">
               <a
                 href={`mailto:${socialLinks.email}`}
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-small text-muted hover:text-accent transition-colors uppercase tracking-wider"
               >
                 Email
               </a>
-              <span className="text-gray-600">·</span>
               <a
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-small text-muted hover:text-accent transition-colors uppercase tracking-wider"
               >
                 LinkedIn
               </a>
-              <span className="text-gray-600">·</span>
               <a
                 href={socialLinks.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-accent transition-colors"
+                className="text-small text-muted hover:text-accent transition-colors uppercase tracking-wider"
               >
                 Twitter
               </a>

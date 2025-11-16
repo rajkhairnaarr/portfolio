@@ -3,9 +3,10 @@ import { valuePillars } from '../data/portfolioData';
 
 function ValuePillars() {
   return (
-    <section className="py-section-mobile md:py-section-tablet lg:py-section bg-white">
-      <div className="max-w-content mx-auto editorial-gutter px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+    <section className="section-padding bg-light noise-texture">
+      <div className="container-asymmetric">
+        {/* Grid with different widths: 45%, 38%, 42% and staggered translateY */}
+        <div className="value-grid">
           {valuePillars.map((pillar, index) => (
             <motion.div
               key={pillar.id}
@@ -13,12 +14,12 @@ function ValuePillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="space-y-4"
+              className="value-card"
             >
-              <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">
+              <h3 className="text-h3 text-on-light mb-6">
                 {pillar.title}
               </h3>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-body text-muted">
                 {pillar.description}
               </p>
             </motion.div>

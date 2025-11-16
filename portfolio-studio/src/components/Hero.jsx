@@ -4,52 +4,41 @@ import { Button } from './ui/button';
 
 function Hero() {
   return (
-    <section className="min-h-[80vh] bg-hero-gradient grid lg:grid-cols-12">
-      {/* Left Column - Text Content with Editorial Gutter */}
-      <div className="lg:col-span-5 flex items-center editorial-gutter py-24 lg:py-32">
+    <section className="min-h-screen bg-dark noise-texture flex items-center whitespace-hero-bottom">
+      <div className="container-asymmetric w-full py-24 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="editorial-text-narrow space-y-8"
+          className="hero-text-container"
         >
-          <div className="text-sm uppercase tracking-wider text-gray-300 font-medium">
-            Product Designer
+          {/* Eyebrow */}
+          <div className="text-small uppercase tracking-wider text-muted font-medium mb-8">
+            Product Designer & Systems Thinker
           </div>
 
-          <h1 className="hero-h1 on-gradient-dark">
-            I design clear, intuitive digital experiences.
+          {/* Headline - 84px with clamp, left-aligned, max-width 60% */}
+          <h1 className="text-h1 text-on-dark mb-8">
+            Building intuitive products through clarity, not complexity
           </h1>
 
-          <p className="hero-lead on-gradient-dark">
-            I'm Raj Khairnar, a UI/UX designer focused on clarity, usability, and thoughtful product decisions.
+          {/* Subtext - 18px */}
+          <p className="text-body text-muted max-w-2xl mb-12">
+            I'm Raj Khairnar. I help teams design product experiences that make sense—
+            reducing cognitive load, improving usability, and driving measurable outcomes.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button asChild variant="default" size="lg">
-              <Link to="/work">View My Work</Link>
+          {/* Asymmetric button placement - primary left, secondary offset right */}
+          <div className="flex flex-col sm:flex-row gap-6 items-start">
+            <Button asChild variant="default" size="lg" className="btn-primary">
+              <Link to="/work">View Selected Work</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link to="/about">About Me</Link>
+            <Button asChild variant="outline" size="lg" className="btn-secondary sm:ml-12">
+              <Link to="/about">How I Work</Link>
             </Button>
           </div>
         </motion.div>
       </div>
-
-      {/* Right Column - Hero Image fills to viewport edge */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="lg:col-span-7 relative overflow-hidden"
-      >
-        <img
-          src="/assets/hero.png"
-          alt="Portfolio showcase"
-          className="w-full h-full object-cover"
-        />
-        {/* TODO: Replace /assets/hero.png with your hero image */}
-      </motion.div>
     </section>
   );
 }

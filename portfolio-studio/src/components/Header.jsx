@@ -27,7 +27,7 @@ function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-hero-top bg-opacity-95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-dark bg-opacity-95 backdrop-blur-sm border-b border-subtle' : 'bg-transparent'
       }`}
     >
       {/* Skip to content link for accessibility */}
@@ -35,24 +35,24 @@ function Header() {
         Skip to content
       </a>
 
-      <div className="max-w-content mx-auto px-6 py-4">
+      <div className="container-asymmetric py-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - minimal, strong */}
           <Link
             to="/"
-            className="text-2xl font-heading font-bold text-white hover:text-accent transition-colors"
+            className="text-xl font-heading font-bold text-on-dark hover:text-accent transition-colors"
           >
-            Raj Khairnar
+            RK
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+          {/* Desktop Navigation - clean, spaced */}
+          <nav className="hidden md:flex items-center gap-12" aria-label="Main navigation">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-white hover:text-accent transition-colors font-medium ${
+                  `text-on-dark hover:text-accent transition-colors font-medium text-small uppercase tracking-wider ${
                     isActive ? 'text-accent' : ''
                   }`
                 }
@@ -66,7 +66,7 @@ function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-white"
+            className="md:hidden text-on-dark"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
@@ -84,16 +84,16 @@ function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="md:hidden fixed top-16 right-0 bottom-0 w-64 bg-hero-top shadow-xl"
+            className="md:hidden fixed top-20 right-0 bottom-0 w-64 bg-dark shadow-xl border-l border-subtle"
             aria-label="Mobile navigation"
           >
-            <div className="flex flex-col space-y-4 p-6">
+            <div className="flex flex-col space-y-6 p-8">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   className={({ isActive }) =>
-                    `text-white hover:text-accent transition-colors font-medium text-lg ${
+                    `text-on-dark hover:text-accent transition-colors font-medium text-lg ${
                       isActive ? 'text-accent' : ''
                     }`
                   }

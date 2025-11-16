@@ -3,27 +3,27 @@
 export const valuePillars = [
   {
     id: 'clarity',
-    title: 'Clarity',
-    description: 'I make complex experiences feel simple and intuitive.',
+    title: 'Clarity over cleverness',
+    description: 'I strip away unnecessary complexity. Users shouldn't need to interpret—they should know exactly what to do next through obvious hierarchy and clear language.',
   },
   {
     id: 'craft',
-    title: 'Craft',
-    description: 'I care about clean UI, strong hierarchy, and precision.',
+    title: 'Systems thinking',
+    description: 'Every component is part of a larger system. I design with consistency, reusability, and scale in mind—building foundations that grow with the product.',
   },
   {
     id: 'impact',
-    title: 'Impact',
-    description: 'Design is meaningful when it moves real product metrics.',
+    title: 'Outcome-driven design',
+    description: 'Good design moves metrics. I validate decisions through user testing, analytics, and iteration—optimizing for measurable improvements, not aesthetic preferences.',
   },
 ];
 
 export const signatureCaseStudy = {
-  tag: 'Case Study',
-  title: 'Improving Onboarding for a Modern Digital Product',
-  role: 'Product Designer',
-  summary: 'I redesigned an onboarding flow to reduce friction and increase trust. Through clarity-first structure and iterative user testing, we improved completion rates and user confidence.',
-  cta: 'View Case Study →',
+  tag: 'Featured Work',
+  title: 'Reducing onboarding time by 43% through progressive disclosure',
+  role: 'Product Designer · 2024',
+  summary: 'Redesigned a complex SaaS onboarding flow for a fintech platform. By restructuring information hierarchy and introducing progressive disclosure, we reduced median time-to-first-value from 14 minutes to 8 minutes—and increased completion rates from 62% to 89%.',
+  cta: 'View Full Case Study',
   image: '/assets/signature-case-study.jpg',
   slug: 'onboarding-redesign',
 };

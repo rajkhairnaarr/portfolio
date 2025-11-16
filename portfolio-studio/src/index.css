@@ -2,16 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   DESIGN SYSTEM - CSS CUSTOM PROPERTIES
+   High contrast, opinionated design approach
+   ============================================ */
+
 :root {
-  --left-gutter: 96px;
-  --max-text-col: 540px;
+  /* === COLOR PALETTE === */
+  /* High contrast Option A */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f5f5;
+  --accent: #00ff88;
+  --accent-hover: #00dd77;
+  --text-primary: #ffffff;
+  --text-secondary: #999999;
+  --text-on-light: #0a0a0a;
+  --text-muted: #666666;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+
+  /* === TYPOGRAPHY SCALE === */
+  /* Extreme size contrast for visual hierarchy */
+  --font-size-display: clamp(72px, 10vw, 96px);
+  --font-size-h1: clamp(48px, 7vw, 84px);
+  --font-size-h2: clamp(32px, 4.5vw, 60px);
+  --font-size-h3: clamp(24px, 3vw, 40px);
+  --font-size-body: 18px;
+  --font-size-small: 14px;
+
+  --line-height-display: 0.9;
+  --line-height-h1: 1.1;
+  --line-height-h2: 1.2;
+  --line-height-body: 1.6;
+  --line-height-small: 1.5;
+
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  /* === SPACING SCALE === */
+  /* 8px base scale for consistent rhythm */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --space-20: 160px;
+
+  /* Section padding - generous whitespace */
+  --section-padding-y: 160px;
+  --section-padding-x: 80px;
+  --section-padding-y-tablet: 100px;
+  --section-padding-x-tablet: 48px;
+  --section-padding-y-mobile: 64px;
+  --section-padding-x-mobile: 24px;
+
+  /* === LAYOUT === */
+  /* Asymmetric container for breaking the grid */
+  --container-margin-left: 8vw;
+  --container-margin-right: 20vw;
+  --max-text-width: 60%;
+  --hero-right-margin: 120px;
+
+  /* === EFFECTS === */
+  --border-radius: 2px;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-elevation: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-elevation-hover: 0 16px 48px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --container-margin-left: 6vw;
+    --container-margin-right: 6vw;
+    --max-text-width: 90%;
+    --hero-right-margin: 48px;
+  }
 }
 
 @media (max-width: 768px) {
   :root {
-    --left-gutter: 24px;
+    --container-margin-left: 24px;
+    --container-margin-right: 24px;
+    --max-text-width: 100%;
+    --hero-right-margin: 0;
   }
 }
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
 
 @layer base {
   html {
@@ -19,138 +104,388 @@
   }
 
   body {
-    @apply font-body text-gray-900;
+    @apply font-body;
     margin: 0;
     padding: 0;
+    color: var(--text-on-light);
+    background: var(--bg-secondary);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+    font-weight: var(--font-weight-bold);
   }
 
   /* Skip to content link for accessibility */
   .skip-to-content {
-    @apply absolute -top-full left-0 bg-accent text-white px-4 py-2 z-50;
+    @apply absolute -top-full left-0 z-50;
+    background: var(--accent);
+    color: var(--bg-primary);
+    padding: var(--space-2) var(--space-4);
     @apply focus:top-0;
     transition: top 0.2s;
   }
-
-  /* Ensure high contrast text on gradients */
-  .on-gradient-dark {
-    color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  }
 }
 
+/* ============================================
+   COMPONENT CLASSES
+   Layout decisions and opinionated utilities
+   ============================================ */
+
 @layer components {
-  /* CSS Variable-based utility classes */
-  .narrow-col {
-    max-width: var(--max-text-col);
+
+  /* === TYPOGRAPHY UTILITIES === */
+
+  .text-display {
+    font-size: var(--font-size-display);
+    line-height: var(--line-height-display);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.02em;
   }
 
-  .left-gutter {
-    padding-left: var(--left-gutter);
+  .text-h1 {
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.02em;
   }
 
-  .hairline {
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  .text-h2 {
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.01em;
   }
 
-  .h1-display {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 9vw, 96px);
-    line-height: 0.95;
-    @apply font-bold;
+  .text-h3 {
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-h2);
+    font-weight: var(--font-weight-bold);
   }
 
-  /* Hero section specific typography */
-  .hero-h1 {
-    font-size: clamp(36px, 6vw, 72px);
-    @apply font-heading font-bold leading-tight;
+  .text-body {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
   }
 
-  .hero-lead {
-    font-size: clamp(16px, 2vw, 22px);
-    @apply font-body leading-relaxed;
+  .text-small {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
   }
 
-  /* Button styles */
-  .btn-primary {
-    @apply inline-block px-8 py-4 bg-accent text-white font-semibold rounded-lg;
-    @apply hover:bg-opacity-90 transition-all duration-300;
-    @apply focus:outline-none focus:ring-4 focus:ring-accent focus:ring-opacity-50;
+  /* === LAYOUT UTILITIES === */
+
+  /* Asymmetric container - breaks the grid */
+  .container-asymmetric {
+    margin-left: var(--container-margin-left);
+    margin-right: var(--container-margin-right);
   }
 
-  .btn-secondary {
-    @apply inline-block px-8 py-4 border-2 border-white text-white font-semibold rounded-lg;
-    @apply hover:bg-white hover:text-hero-top transition-all duration-300;
-    @apply focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50;
+  /* Hero specific layout */
+  .hero-text-container {
+    max-width: var(--max-text-width);
+    margin-right: var(--hero-right-margin);
   }
 
-  /* Editorial layout utilities */
-  .editorial-gutter {
-    padding-left: 96px;
+  /* Generous section padding */
+  .section-padding {
+    padding: var(--section-padding-y) var(--section-padding-x);
   }
 
-  .editorial-text-narrow {
-    max-width: 540px;
-  }
-
-  .hairline-separator {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  }
-
-  /* Project band - full-width editorial stripe */
-  .project-band {
-    @apply w-full transition-opacity duration-300;
-  }
-
-  .project-band:hover {
-    @apply opacity-95;
+  @media (max-width: 1024px) {
+    .section-padding {
+      padding: var(--section-padding-y-tablet) var(--section-padding-x-tablet);
+    }
   }
 
   @media (max-width: 768px) {
-    .editorial-gutter {
-      padding-left: 24px;
+    .section-padding {
+      padding: var(--section-padding-y-mobile) var(--section-padding-x-mobile);
+    }
+  }
+
+  /* === VISUAL EFFECTS === */
+
+  /* Noise texture background for visual interest */
+  .noise-texture {
+    position: relative;
+  }
+
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");
+  }
+
+  /* Card hover states - elevation change */
+  .card-hover {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    will-change: transform;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elevation-hover);
+  }
+
+  /* Minimal border radius - kill the rounded safe look */
+  .minimal-radius {
+    border-radius: var(--border-radius);
+  }
+
+  /* === BUTTON STYLES === */
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-body);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background var(--transition-base), transform var(--transition-base);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.3);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-body);
+    border: 2px solid var(--text-primary);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
+  }
+
+  .btn-secondary:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Button on light background */
+  .btn-secondary-dark {
+    color: var(--text-on-light);
+    border-color: var(--text-on-light);
+  }
+
+  .btn-secondary-dark:hover {
+    background: var(--text-on-light);
+    color: var(--bg-secondary);
+  }
+
+  /* === GRID BREAKING LAYOUTS === */
+
+  /* Staggered value prop cards */
+  .value-grid {
+    display: grid;
+    grid-template-columns: 45% 38% 42%;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  @media (max-width: 1024px) {
+    .value-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+
+  .value-card {
+    padding: var(--space-8);
+    background: var(--bg-tertiary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .value-card:nth-child(1) {
+    transform: translateY(0);
+  }
+
+  .value-card:nth-child(2) {
+    transform: translateY(60px);
+  }
+
+  .value-card:nth-child(3) {
+    transform: translateY(120px);
+  }
+
+  @media (max-width: 1024px) {
+    .value-card:nth-child(1),
+    .value-card:nth-child(2),
+    .value-card:nth-child(3) {
+      transform: translateY(0);
+    }
+  }
+
+  .value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elevation);
+  }
+
+  @media (max-width: 1024px) {
+    .value-card:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  /* Asymmetric two-column 60/40 split */
+  .asymmetric-split {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .asymmetric-split {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Bento box playground grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    grid-auto-rows: 200px;
+  }
+
+  @media (max-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 180px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 160px;
+    }
+  }
+
+  /* Varied aspect ratios for bento items */
+  .bento-item-tall {
+    grid-row: span 2;
+  }
+
+  .bento-item-wide {
+    grid-column: span 2;
+  }
+
+  .bento-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .bento-item:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-elevation);
+  }
+
+  .bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* === ACCESSIBILITY === */
+
+  /* Proper focus states */
+  *:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* Remove default focus outline for mouse users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+@layer utilities {
+  /* Text color utilities */
+  .text-on-dark {
+    color: var(--text-primary);
+  }
+
+  .text-on-light {
+    color: var(--text-on-light);
+  }
+
+  .text-muted {
+    color: var(--text-secondary);
+  }
+
+  /* Background utilities */
+  .bg-dark {
+    background: var(--bg-primary);
+  }
+
+  .bg-light {
+    background: var(--bg-secondary);
+  }
+
+  .bg-accent {
+    background: var(--accent);
+  }
+
+  /* Whitespace utilities */
+  .whitespace-hero-bottom {
+    padding-bottom: 25vh;
+  }
+
+  @media (max-width: 768px) {
+    .whitespace-hero-bottom {
+      padding-bottom: 15vh;
     }
   }
 }
 
-@layer utilities {
-  /* Masonry layout for gallery */
-  .masonry-grid {
-    column-gap: 1rem;
-  }
+/* ============================================
+   RESPECT USER PREFERENCES
+   ============================================ */
 
-  .masonry-grid-1 {
-    column-count: 1;
-  }
-
-  .masonry-grid-2 {
-    column-count: 2;
-  }
-
-  .masonry-grid-3 {
-    column-count: 3;
-  }
-
-  .masonry-grid-4 {
-    column-count: 4;
-  }
-
-  .masonry-item {
-    break-inside: avoid;
-    margin-bottom: 1rem;
-  }
-
-  /* Parallax container */
-  .parallax-container {
-    overflow: hidden;
-    position: relative;
-  }
-}
-
-/* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -159,7 +494,20 @@
     scroll-behavior: auto !important;
   }
 
-  .parallax-container {
+  .card-hover:hover,
+  .value-card:hover,
+  .bento-item:hover {
     transform: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-subtle: rgba(255, 255, 255, 0.3);
+  }
+
+  .value-card {
+    border: 2px solid var(--text-on-light);
   }
 }

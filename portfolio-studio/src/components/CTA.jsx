@@ -4,26 +4,30 @@ import { Button } from './ui/button';
 
 function CTA() {
   return (
-    <section className="bg-cta-gradient py-24 md:py-32 lg:py-40 px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="max-w-cta-text mx-auto text-center"
-      >
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-10">
-          Let's Create Something Meaningful Together
-        </h2>
-
-        <Button
-          asChild
-          size="lg"
-          className="bg-white text-hero-top hover:bg-gray-100 font-bold text-lg px-12 py-6"
+    <section className="section-padding bg-light noise-texture">
+      <div className="container-asymmetric">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl"
         >
-          <Link to="/contact">Contact Me</Link>
-        </Button>
-      </motion.div>
+          <h2 className="text-h2 text-on-light mb-12">
+            Available for select projects—
+            <br />
+            let's build something that matters
+          </h2>
+
+          <Button
+            asChild
+            size="lg"
+            className="btn-primary text-lg"
+          >
+            <Link to="/contact">Start a Conversation</Link>
+          </Button>
+        </motion.div>
+      </div>
     </section>
   );
 }
