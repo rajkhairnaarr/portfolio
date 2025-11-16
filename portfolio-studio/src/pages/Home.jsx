@@ -1,4 +1,9 @@
 import { useEffect } from 'react';
+import ValuePillars from '../components/ValuePillars';
+import SignatureCaseStudy from '../components/SignatureCaseStudy';
+import Playground from '../components/Playground';
+import HowIWork from '../components/HowIWork';
+import CTA from '../components/CTA';
 
 function Home() {
   useEffect(() => {
@@ -18,11 +23,21 @@ function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-dark">
-      <div
-        data-us-project="tfTJE5fjug296JOMr7eh"
-        style={{ width: '1440px', height: '900px', maxWidth: '100%' }}
-      />
+    <div>
+      {/* Hero Section - UnicornStudio */}
+      <section className="min-h-screen flex items-center justify-center bg-dark overflow-hidden">
+        <div
+          data-us-project="tfTJE5fjug296JOMr7eh"
+          style={{ width: '1440px', height: '900px', maxWidth: '100%' }}
+        />
+      </section>
+
+      {/* Rest of the portfolio sections */}
+      <ValuePillars />
+      <SignatureCaseStudy />
+      <Playground />
+      <HowIWork />
+      <CTA />
     </div>
   );
 }
