@@ -29,6 +29,14 @@ export default {
       },
       maxWidth: {
         'content': '1200px',
+        'narrow': '540px',
+        'cta-text': '760px',
+      },
+      spacing: {
+        'gutter': '96px',
+        'section': '120px',
+        'section-tablet': '80px',
+        'section-mobile': '48px',
       },
       backgroundImage: {
         'hero-gradient': 'linear-gradient(180deg, #1b1122 0%, #6c86a6 35%, #eae2c5 70%, #f6e8d0 100%)',

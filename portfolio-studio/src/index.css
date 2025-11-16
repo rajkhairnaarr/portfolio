@@ -56,29 +56,32 @@
     @apply focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50;
   }
 
-  /* Filter pills */
-  .filter-pill {
-    @apply px-6 py-2 rounded-full border-2 border-gray-300 bg-white;
-    @apply hover:border-accent hover:text-accent transition-all duration-200;
-    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50;
-    cursor: pointer;
+  /* Editorial layout utilities */
+  .editorial-gutter {
+    padding-left: 96px;
   }
 
-  .filter-pill[aria-pressed="true"] {
-    @apply bg-accent text-white border-accent;
+  .editorial-text-narrow {
+    max-width: 540px;
   }
 
-  /* Card styles */
-  .project-card {
-    @apply transition-all duration-300 cursor-pointer;
+  .hairline-separator {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  .project-card:hover {
-    transform: translateY(-8px);
+  /* Project band - full-width editorial stripe */
+  .project-band {
+    @apply w-full transition-opacity duration-300;
   }
 
-  .project-card:focus-within {
-    @apply ring-4 ring-accent ring-opacity-50;
+  .project-band:hover {
+    @apply opacity-95;
+  }
+
+  @media (max-width: 768px) {
+    .editorial-gutter {
+      padding-left: 24px;
+    }
   }
 }
 
@@ -123,10 +126,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-
-  .project-card:hover {
-    transform: none;
   }
 
   .parallax-container {
