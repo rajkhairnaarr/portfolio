@@ -163,3 +163,16 @@ None - navigation structure unchanged.
 
 ---
 
+## `src/__tests__/ProjectBand.test.jsx` (NEW)
+
+**Diff Summary:**
+Created test suite for ProjectBand component mirroring ProjectCard.test.jsx. Tests verify title, role, tags, description rendering, and correct link href to /work/:slug path.
+
+**Reason:**
+ProjectBand replaces ProjectCard—tests ensure component renders correctly and links navigate properly.
+
+**TODOs:**
+None - test coverage complete.
+
+---
+
